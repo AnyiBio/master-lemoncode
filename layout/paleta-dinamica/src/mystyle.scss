@@ -1,0 +1,92 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Mountains of Christmas', cursive;
+}
+body:before {
+    position: absolute;
+    transform: rotate(30deg);
+}
+body {
+    background-image: url(../public/img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+$base-red: #cc231e;
+$base-green: #34a65f;
+$base-blue: #235e6f;
+
+.christmas-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    .christmas-item{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        &__hat-base-color {
+            img.color-hat-img {
+                background-color: $base-red;
+            }
+        }
+        &__tree-base-color {
+            img.color-tree-img {
+                background-color: $base-green;
+            }  
+        }
+        &__snowflake-base-color {
+            img.color-snowflake-img {
+                background-color: $base-blue;
+            }  
+        }
+    }
+}
+
+@for $i from 1 through 4 {
+    .christmas-item__hat-lighten-#{$i} {
+        img.color-hat-img {
+            background-color: lighten($base-red, $i * 8%);
+        }
+    }
+    .christmas-item__tree-lighten-#{$i} {
+        img.color-tree-img {
+            background-color: lighten($base-green, $i * 8%);
+        }
+    }
+    .christmas-item__snowflake-lighten-#{$i} {
+        img.color-snowflake-img {
+            background-color: lighten($base-blue, $i * 8%);
+        }
+    }
+  }
+
+  @for $i from 1 through 4 {
+    .christmas-item__hat-darken-#{$i} {
+        img.color-hat-img {
+            background-color: darken($base-red, $i * 8%);
+        }
+    }
+    .christmas-item__tree-darken-#{$i} {
+        img.color-tree-img {
+            background-color: darken($base-green, $i * 8%);
+        }
+    }
+    .christmas-item__snowflake-darken-#{$i} {
+        img.color-snowflake-img {
+            background-color: darken($base-blue, $i * 8%);
+        }
+    }
+  }
+  

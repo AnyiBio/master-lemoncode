@@ -1,0 +1,72 @@
+@use '_dark-theme.scss' as dark;
+@use '_light-theme.scss' as light;
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+.theme-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    &__element {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 4rem;
+        > div {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            > span {
+                margin: auto;
+            }
+        }
+    }
+    &__element:first-child {
+        background-color: light.$base;
+        > .primary {
+            background-color: light.$primary;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        > .alert {
+            background-color: light.$yellow;
+        }
+        
+        > .danger {
+            background-color: light.$red;
+        }
+        
+        > .success {
+            background-color: light.$green;
+            border-radius: 0 0 12px 12px;
+        }
+    }
+    &__element:not(:first-child) {
+        background-color: dark.$base;
+        > .primary {
+            background-color: dark.$primary;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        > .alert {
+            background-color: dark.$yellow;
+        }
+        
+        > .danger {
+            background-color: dark.$red;
+        }
+        
+        > .success {
+            background-color: dark.$green;
+            border-radius: 0 0 12px 12px;
+        }
+    }
+    @media(max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+}
