@@ -14,8 +14,10 @@ const tail = (arrayParameter: Array<ArrayOperations>): Array<ArrayOperations>  =
 
 
 const init = (arrayParameter: Array<ArrayOperations>): Array<ArrayOperations>  => {
-    const allEmemetsUntilLast = [...arrayParameter];
-    allEmemetsUntilLast.pop();
+    const lastElement = arrayParameter.length - 1;
+    const allEmemetsUntilLast = arrayParameter.filter((_, index) => (
+        index != lastElement
+    ));
     return allEmemetsUntilLast;
 };
 
