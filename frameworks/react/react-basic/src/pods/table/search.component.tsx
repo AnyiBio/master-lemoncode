@@ -6,7 +6,7 @@ interface Props {
   onSetOrganization: (e: string) => void;
 }
 
-export const MemberInputSearch: React.FC<Props> = ({ onSetOrganization }) => {
+export const SearchComponent: React.FC<Props> = ({ onSetOrganization }) => {
   return (
     <Box
       component="form"

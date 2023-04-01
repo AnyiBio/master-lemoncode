@@ -1,5 +1,5 @@
 import React from "react";
-import { Column, MemberEntity } from "./member-table-model";
+import { ColumnEntity, TableEntity } from "./table.vm";
 import Avatar from '@mui/material/Avatar';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -10,7 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
-const columns: readonly Column[] = [
+const columns: readonly ColumnEntity[] = [
   { id: 'id', label: 'ID', minWidth: 100 },
   { id: 'avatar_url', label: 'Photo', minWidth: 100 },
   {
@@ -20,11 +20,12 @@ const columns: readonly Column[] = [
     align: 'left',
   }
 ];
+
 interface Props {
-  members: MemberEntity[];
+  members: TableEntity[];
 }
 
-export const MemberTable: React.FC<Props> = ({ members }) => {
+export const TableComponent: React.FC<Props> = ({ members }) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 

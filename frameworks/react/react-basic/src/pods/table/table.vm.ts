@@ -1,10 +1,10 @@
-export interface MemberEntity {
+export interface TableEntity {
     avatar_url: string;
     id: string;
     login: string;
 }
 
-export interface Column {
+export interface ColumnEntity {
     id: 'id' | 'avatar_url' | 'login';
     label: string;
     minWidth?: number;
