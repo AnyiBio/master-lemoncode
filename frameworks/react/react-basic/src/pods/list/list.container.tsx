@@ -1,6 +1,6 @@
 import React from "react";
 import { ListComponent } from "./list.component";
-import { getRickAndMortyCharactersService } from "./list.service";
+import { getRickAndMortyCharactersService } from "./list.api";
 import { RickAndMortyEntity } from "./list.vm";
 
 export const ListContainer: React.FC = () => {
@@ -13,12 +13,12 @@ export const ListContainer: React.FC = () => {
   }, []);
   
     return (
-      <React.Fragment>
+      <div className="list-container">
         {
           characters?.map(character => (
             <ListComponent key={character.id} character={character}/>
           ))
         }
-      </React.Fragment>
+      </div>
     );
 };

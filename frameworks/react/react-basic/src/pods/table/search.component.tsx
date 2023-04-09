@@ -3,10 +3,19 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 
 interface Props {
-  onSetOrganization: (e: string) => void;
+  inputValue,
+  onInputChange: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onSetOrganization: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-export const SearchComponent: React.FC<Props> = ({ onSetOrganization }) => {
+export const SearchComponent: React.FC<Props> = ({
+  inputValue,
+  onInputChange,
+  onSetOrganization,
+  onKeyPress
+}) => {
+
   return (
     <Box
       component="form"
@@ -17,8 +26,10 @@ export const SearchComponent: React.FC<Props> = ({ onSetOrganization }) => {
     >
       <TextField
         label="Search for a company"
-        defaultValue={'lemoncode'}
-        onBlur={e => onSetOrganization(e.target.value)}
+        value={inputValue}
+        onChange={onInputChange}
+        onBlur={onSetOrganization}
+        onKeyDown={onKeyPress}
       />
     </Box>
   );

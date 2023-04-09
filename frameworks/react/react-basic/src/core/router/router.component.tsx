@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { switchRoutes } from "./routes";
-import { OrganizationPage, RickAndMortyPage } from "@/scenes";
+import { OrganizationPage, RickAndMortyPage, DetailPage } from "@/scenes";
 
 export const RouterComponent: React.FC = () => {
   return (
@@ -9,6 +9,7 @@ export const RouterComponent: React.FC = () => {
       <Routes>
         <Route path={switchRoutes.root} element={<OrganizationPage />} />
         <Route path={switchRoutes.rickAndMorty} element={<RickAndMortyPage />} />
+        <Route path={switchRoutes.details} element={<DetailPage />} />
       </Routes>
     </Router>
   );

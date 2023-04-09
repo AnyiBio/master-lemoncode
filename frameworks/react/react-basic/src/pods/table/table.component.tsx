@@ -56,8 +56,8 @@ export const TableComponent: React.FC<Props> = ({ members }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {members
-            .map((member) => {
+          {members.length > 0 ?
+            members.map((member) => {
               return (
                 <TableRow key={member.id}>
                     <TableCell>{member.id}</TableCell>
@@ -70,7 +70,8 @@ export const TableComponent: React.FC<Props> = ({ members }) => {
                     <TableCell>{member.login}</TableCell>
                 </TableRow>
               );
-            })}
+            })
+          : ""}
         </TableBody>
       </Table>
     </TableContainer>

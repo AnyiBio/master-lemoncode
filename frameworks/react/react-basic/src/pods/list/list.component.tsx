@@ -6,13 +6,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { RickAndMortyEntity } from "./list.vm";
+import { routes } from "@/core";
+import { Link } from "react-router-dom";
 
 interface Props {
     character: RickAndMortyEntity;
 }
 
 export const ListComponent: React.FC<Props> = ({ character }) => {
-    console.log(character);
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -33,8 +34,7 @@ export const ListComponent: React.FC<Props> = ({ character }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Link to={routes.details(character.id.toString())}>Learn More</Link>
       </CardActions>
     </Card>
   );
