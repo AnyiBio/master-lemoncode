@@ -1,0 +1,43 @@
+<div class="container">
+  <form *ngIf="showForm" [formGroup]="newsletterForm" (ngSubmit)="onSubmit()">
+    <h2>Subscribe to our newsletter</h2>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="newsletterForm.controls.name.invalid">
+          Please, type your full name.
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" required email>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="newsletterForm.controls.email.invalid">
+         Please, type a valid email.
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <div class="button-container">
+      <button mat-raised-button color="primary" [disabled]="!newsletterForm.valid">Suscribirse</button>
+    </div>
+  </form>
+  <mat-card *ngIf="!showForm">
+    <mat-card-header>
+      <mat-card-title>¡Thank you for subscribe it to our news letter!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>We will keep you updated with all the news related to Rick and Morty.</p>
+      <div class="gif-container">
+        <img src="https://media.giphy.com/media/BSx6mzbW1ew7K/giphy.gif" alt="Cat rainbow">
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/">Back to home </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,11 @@
+<h2>Episode list</h2>
+
+<mat-list>
+  <mat-list-item *ngFor="let episode of episodes">
+    <h3 matLine>{{ episode.name }}</h3>
+    <p matLine>{{ episode.air_date }}</p>
+    <p matLine>{{ episode.episode }}</p>
+  </mat-list-item>
+</mat-list>
+
+<p class="footer">Total episodes: {{ episodes?.length }}</p>

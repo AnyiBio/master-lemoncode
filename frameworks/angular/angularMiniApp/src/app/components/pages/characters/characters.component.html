@@ -1,0 +1,15 @@
+<mat-list>
+  <mat-list-item *ngFor="let character of characters">
+    <img matListAvatar [src]="character.image">
+    <h3 matLine>{{ character.name }}</h3>
+    <p matLine>
+      <span>Estado: {{ character.status }}</span>
+      <span class="spacer"></span>
+      <span>Especie: {{ character.species }}</span>
+    </p>
+    <p matLine>
+      Ubicación: {{ character.location.name }}
+    </p>
+  </mat-list-item>
+</mat-list>
+
