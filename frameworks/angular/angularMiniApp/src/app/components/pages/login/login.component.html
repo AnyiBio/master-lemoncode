@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card class="mat-blue">
+    <mat-card-content>
+      <p>username: master@lemoncode.net</p>
+      <p>password: 12345678</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="text" formControlName="username" required>
+        <mat-icon matSuffix>username</mat-icon>
+        <mat-error *ngIf="f.username.errors.required">Email is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-error>Por favor ingrese su contraseña</mat-error>
+      </mat-form-field>
+
+      <button [disabled]="loading" mat-raised-button color="accent" type="submit">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+        Login
+    </button>
+    </form>
+  </mat-card-content>
+</mat-card>

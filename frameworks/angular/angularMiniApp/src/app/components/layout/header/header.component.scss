@@ -1,13 +1,11 @@
-app-header {
-  width: 100%;
+.mat-toolbar.mat-accent {
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: space-between;
 }
 
-.mat-chip.mat-standard-chip {
-  cursor: pointer;
+.mat-raised-button {
+  color: #FF3F80;
 }
-
-.selected {
-  background-color: #cc16d6;
-  color: white;
-}
-

@@ -1,5 +1,13 @@
-<mat-chip-list>
-  <mat-chip color="warn" routerLinkActive="selected" routerLink="/characters">Rick & Morty characters</mat-chip>
-  <mat-chip color="warn" routerLinkActive="selected"  routerLink="/episodes">Episodes</mat-chip>
-  <mat-chip color="warn" routerLinkActive="selected" routerLink="/newsletter">Newsletter</mat-chip>
-</mat-chip-list>
+<mat-toolbar *ngIf="!user" color="accent">
+   <button class="button-header" mat-raised-button color="white" routerLinkActive="selected" routerLink="/about">About</button>
+   <button class="button-header" mat-raised-button color="white" routerLinkActive="selected" routerLink="/">Home</button>
+   <button class="button-header" mat-raised-button color="white" routerLink="/login">Login</button>
+</mat-toolbar>
+
+<mat-toolbar *ngIf="user" color="accent">
+  <h1>{{user.username}}</h1>
+  <button class="button-header" mat-raised-button color="white" routerLinkActive="selected" routerLink="/">Home</button>
+  <button class="button-header" mat-raised-button color="white" routerLinkActive="selected" routerLink="/characters">Galería Rick & Morty</button>
+  <button class="button-header" mat-raised-button color="white" routerLinkActive="selected"  routerLink="/episodes">Episodes</button>
+  <button class="button-header" mat-raised-button color="white" (click)="logout()">Logout</button>
+</mat-toolbar>

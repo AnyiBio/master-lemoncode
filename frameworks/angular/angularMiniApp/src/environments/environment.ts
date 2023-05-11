@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://jsonplaceholder.typicode.com/'
-  //Url con filtro: https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz
+  apiUrl: 'http://localhost:4200'
 };
 
 /*
