@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
 
       - name: Run tests
         working-directory: ${{ github.workspace }}/testing/00-boilerplate
