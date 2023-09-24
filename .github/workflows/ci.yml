@@ -10,7 +10,7 @@ jobs:
 
       - name: Install
         working-directory: testing/00-boilerplate
-        run:  npm ci 
+        run:  npm install
 
       - name: Unit test
         working-directory: testing/00-boilerplate
