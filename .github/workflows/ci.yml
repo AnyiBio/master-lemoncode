@@ -9,13 +9,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install
-        working-directory: ./testing/00-boilerplate
+        working-directory: testing/00-boilerplate
         run:  npm ci 
 
       - name: Unit test
-        working-directory: ./testing/00-boilerplate
+        working-directory: testing/00-boilerplate
         run:  npm run test
 
       - name: e2e test
-        working-directory: ./testing/00-boilerplate
+        working-directory: testing/00-boilerplate
         run:  npm run
