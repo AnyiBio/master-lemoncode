@@ -1,22 +1,21 @@
 name: CI workflow
 
 on: pull_request
-
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Install
-        working-directory: testing/00-boilerplate
-        run:  npm install
+      - name: Install dependencies
+        working-directory: ${{ github.workspace }}/testing/00-boilerplate
+        run:  npm ci
 
       - name: Unit test
-        working-directory: testing/00-boilerplate
+        working-directory: ${{ github.workspace }}/testing/00-boilerplate
         run:  npm run test
 
       - name: e2e test
-        working-directory: testing/00-boilerplate
+        working-directory: ${{ github.workspace }}/testing/00-boilerplate
         run:  npm run test:e2e
