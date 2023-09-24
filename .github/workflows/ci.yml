@@ -1,12 +1,13 @@
 name: CI workflow
 
 on: pull_request
+
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install
         working-directory: testing/00-boilerplate
@@ -18,4 +19,4 @@ jobs:
 
       - name: e2e test
         working-directory: testing/00-boilerplate
-        run:  npm run
+        run:  npm run test:e2e
