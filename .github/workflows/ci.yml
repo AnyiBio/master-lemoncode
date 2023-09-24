@@ -25,9 +25,16 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        working-directory: ${{ github.workspace }}/testing/00-boilerplate/package.json
-        run: npm i
+        run: |
+          cd testing/00-boilerplate
+          npm i
 
-      - name: Run tests
-        working-directory: ${{ github.workspace }}/testing/00-boilerplate
-        run: npm run test
+      - name: Unit testing
+        run: |
+          cd testing/00-boilerplate
+          npm test
+      
+      - name: e2e tests
+        run: |
+          cd testing/00-boilerplate
+          npm test
