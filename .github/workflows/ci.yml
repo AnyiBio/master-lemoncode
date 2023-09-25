@@ -14,10 +14,7 @@ jobs:
           node-version: "18.x"
 
       - name: Install dependencies
-        run: npm install
-
-      - name: npm init
-        run: npm init -y
+        run: npm install:testing
 
       - name: Unit test
         run:  npm run test
