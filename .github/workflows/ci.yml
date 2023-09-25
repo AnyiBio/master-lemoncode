@@ -17,8 +17,11 @@ jobs:
 
       - name: Install dependencies
         working-directory: testing/00-boilerplate
-        run: npm init -y && npm install
+        run: npm install
         shell: bash
+
+      - name: npm init
+        run: npm init -y
 
       - name: Unit test
         working-directory: testing/00-boilerplate
