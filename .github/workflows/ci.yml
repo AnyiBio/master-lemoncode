@@ -10,16 +10,22 @@ jobs:
         with:
           path: testing/00-boilerplate
 
-      - name: Set up Node.js
+      - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
 
       - name: Install dependencies
-        run:  npm i
+        working-directory: testing/00-boilerplate
+        run:  npm install
+        shell: bash
 
       - name: Unit test
+        working-directory: testing/00-boilerplate
         run:  npm run test
+        shell: bash
 
       - name: e2e test
+        working-directory: testing/00-boilerplate
         run:  npm run test:e2e
+        shell: bash
