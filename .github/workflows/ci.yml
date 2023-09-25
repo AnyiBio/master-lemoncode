@@ -8,7 +8,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          repository: ${{ github.workspace }}/testing/00-boilerplate
+          repository: ${{ github.repository }}/testing/00-boilerplate
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
