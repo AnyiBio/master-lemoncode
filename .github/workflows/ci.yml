@@ -7,8 +7,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          path: testing/00-boilerplate
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
