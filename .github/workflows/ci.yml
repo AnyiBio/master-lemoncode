@@ -8,18 +8,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: SetUp Node.js
-        uses: ./testing/00-boilerplate
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-          cache-dependency-path: ./testing/00-boilerplate/package-lock.json
+          cache-dependency-path:  ./testing/00-boilerplate/package-lock.json
           cache: npm
 
       - name: Install dependencies
+        working-directory: ./testing/00-boilerplate
         run:  npm ci
 
       - name: Unit test
+        working-directory: ./testing/00-boilerplate
         run:  npm run test
 
       - name: e2e test
+        working-directory: ${{ github.workspace }}/testing/00-boilerplate
         run:  npm run test:e2e
