@@ -16,7 +16,10 @@ jobs:
           node-version: "18.x"
 
       - name: Install dependencies
-        run:  npm install
+        working-directory: testing/00-boilerplate
+        run: |
+          echo $pwd
+          npm install
         shell: bash
 
       - name: Unit test
