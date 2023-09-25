@@ -17,9 +17,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: testing/00-boilerplate
-        run: |
-          echo $pwd
-          npm install
+        run: echo $pwd
         shell: bash
 
       - name: Unit test
