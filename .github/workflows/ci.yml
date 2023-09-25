@@ -17,7 +17,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: testing/00-boilerplate
-        run: echo $PATH
+        run: echo $PWD
         shell: bash
 
       - name: Unit test
