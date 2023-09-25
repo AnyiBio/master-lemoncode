@@ -8,7 +8,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          persist-credential: false
           path: testing/00-boilerplate
 
       - name: Set up Node.js version
@@ -18,7 +17,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: testing/00-boilerplate
-        run: npm install
+        run: npm init -y && npm install
         shell: bash
 
       - name: Unit test
