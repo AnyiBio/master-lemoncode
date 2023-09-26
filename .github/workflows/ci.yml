@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: "18.16.x"
           cache: "npm"
+          path: testing/00-boilerplate
 
       - name: Install dependencies
         working-directory: testing/00-boilerplate
