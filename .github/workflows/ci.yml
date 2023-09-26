@@ -20,7 +20,9 @@ jobs:
 
       - name: Install dependencies
         working-directory: testing/00-boilerplate
-        run: npm install
+        run: |
+            npm --version
+            npm install
         shell: bash
 
       - name: Unit test
