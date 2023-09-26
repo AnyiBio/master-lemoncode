@@ -16,6 +16,7 @@ jobs:
           node-version: "18.x"
 
       - name: Install dependencies
+        working-directory: testing/00-boilerplate
         run: npm install
         shell: bash
 
