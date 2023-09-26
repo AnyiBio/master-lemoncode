@@ -16,7 +16,9 @@ jobs:
           node-version: "18.16.x"
 
       - name: Verificar contenido del directorio
-        run: cd testing/00-boilerplate ls
+        run: |
+          cd testing/00-boilerplate
+          ls
 
       - name: Install dependencies
         run: npm i
