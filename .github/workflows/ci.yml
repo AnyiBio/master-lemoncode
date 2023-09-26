@@ -4,9 +4,6 @@ on: pull_request
 jobs:
   ci:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16, 18]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -16,19 +13,16 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "18.16.x"
 
       - name: Install dependencies
-        working-directory: testing/00-boilerplate
         run: npm i
-        shell: bash
+        working-directory: testing/00-boilerplate
 
       - name: Unit test
-        working-directory: testing/00-boilerplate
         run:  npm run test
-        shell: bash
+        working-directory: testing/00-boilerplate
 
       - name: e2e test
-        working-directory: testing/00-boilerplate
         run:  npm run test:e2e
-        shell: bash
+        working-directory: testing/00-boilerplate
