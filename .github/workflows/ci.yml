@@ -2,13 +2,14 @@ name: CI workflow
 
 on: pull_request
 jobs:
-  ci:
+  run-defined-frontend-tests:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: testing/00-boilerplate
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          path: testing/00-boilerplate
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
@@ -16,16 +17,10 @@ jobs:
           node-version: "18.x"
 
       - name: Install dependencies
-        working-directory: testing/00-boilerplate
         run: npm install
-        shell: bash
 
       - name: Unit test
-        working-directory: testing/00-boilerplate
         run:  npm run test
-        shell: bash
 
       - name: e2e test
-        working-directory: testing/00-boilerplate
         run:  npm run test:e2e
-        shell: bash
