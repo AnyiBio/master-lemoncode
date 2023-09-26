@@ -4,6 +4,9 @@ on: pull_request
 jobs:
   ci:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16, 18]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -13,9 +16,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: "18.16.x"
-          cache: "npm"
-          cache-dependency-path: testing/00-boilerplate
+          node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
         working-directory: testing/00-boilerplate
