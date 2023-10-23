@@ -4,32 +4,10 @@ on: pull_request
 jobs:
   ci:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: testing/00-boilerplate
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          path: testing/00-boilerplate
-
-      - name: Limpiar caché de dependencias
-        run: npm cache clean --force
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.16.x"
-
-      - name: Eliminar node_modules existente
-        run: rm -rf node_modules
-
-      - name: Install dependencies
-        run: npm i
-
-      - name: Unit test
-        run:  npm run test
-
-      - name: e2e test
-        run:  npm run test:e2e:ci
+      - name: Install
+        run: npm ci
+      - name: Tests e2e
+        run: npm run test:e2e:ci
